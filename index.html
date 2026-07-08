@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>profile.md — GitHub README Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◆</span>
+    <span class="brand-text">profile<span class="brand-dim">.md</span></span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-meta">README generator — build it here, ship it to your profile repo</span>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark mode" title="Toggle light/dark mode">
+      <span class="theme-icon theme-icon-sun">☀</span>
+      <span class="theme-icon theme-icon-moon">☾</span>
+    </button>
+  </div>
+</header>
+
+<main class="app">
+
+  <!-- LEFT: FORM -->
+  <aside class="form-panel">
+    <ol class="stepper" id="stepper"></ol>
+
+    <form id="readme-form">
+
+      <section class="step" data-step="1">
+        <h2><span class="step-no">01</span> Who's this for?</h2>
+        <label>Full name
+          <input type="text" id="f-name" placeholder="Aditi Sharma" />
+        </label>
+        <label>Role / tagline
+          <input type="text" id="f-role" placeholder="Backend Engineer · Building with Go & Postgres" />
+        </label>
+        <label>Location
+          <input type="text" id="f-location" placeholder="Panipat, India" />
+        </label>
+        <label>Short bio
+          <textarea id="f-bio" rows="3" placeholder="I turn coffee into APIs. Currently deep in distributed systems."></textarea>
+        </label>
+      </section>
+
+      <section class="step" data-step="2">
+        <h2><span class="step-no">02</span> What are you focused on?</h2>
+        <label>Currently working on
+          <input type="text" id="f-working" placeholder="A self-hosted analytics tool" />
+        </label>
+        <label>Currently learning
+          <input type="text" id="f-learning" placeholder="Rust, distributed consensus" />
+        </label>
+        <label>Open to collaborate on
+          <input type="text" id="f-collab" placeholder="Open-source dev tools" />
+        </label>
+        <label>Ask me about
+          <input type="text" id="f-askme" placeholder="Backend architecture, API design" />
+        </label>
+      </section>
+
+      <section class="step" data-step="3">
+        <h2><span class="step-no">03</span> Skills</h2>
+        <label>Add a skill, press Enter
+          <input type="text" id="f-skill-input" placeholder="e.g. Python" />
+        </label>
+        <div class="chip-row" id="skill-chips"></div>
+        <p class="hint">Rendered as tech badges in your README.</p>
+      </section>
+
+      <section class="step" data-step="4">
+        <h2><span class="step-no">04</span> GitHub stats</h2>
+        <label>GitHub username
+          <input type="text" id="f-username" placeholder="octocat" />
+        </label>
+        <label class="checkbox"><input type="checkbox" id="f-stat-stats" checked /> Stats card</label>
+        <label class="checkbox"><input type="checkbox" id="f-stat-streak" checked /> Streak stats</label>
+        <label class="checkbox"><input type="checkbox" id="f-stat-langs" checked /> Top languages</label>
+        <label class="checkbox"><input type="checkbox" id="f-stat-trophy" /> Trophies</label>
+        <label>Stats theme
+          <select id="f-theme">
+            <option value="default">Default</option>
+            <option value="dark" selected>Dark</option>
+            <option value="radical">Radical</option>
+            <option value="tokyonight">Tokyo Night</option>
+            <option value="dracula">Dracula</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="step" data-step="5">
+        <h2><span class="step-no">05</span> Projects</h2>
+        <div id="project-list"></div>
+        <button type="button" class="btn-ghost" id="add-project">+ Add project</button>
+      </section>
+
+      <section class="step" data-step="6">
+        <h2><span class="step-no">06</span> Connect</h2>
+        <label>Email
+          <input type="text" id="f-email" placeholder="you@example.com" />
+        </label>
+        <label>LinkedIn username
+          <input type="text" id="f-linkedin" placeholder="aditisharma" />
+        </label>
+        <label>X / Twitter handle
+          <input type="text" id="f-twitter" placeholder="aditicodes" />
+        </label>
+        <label>Portfolio URL
+          <input type="text" id="f-portfolio" placeholder="https://aditi.dev" />
+        </label>
+        <label class="checkbox"><input type="checkbox" id="f-visitors" checked /> Add visitor counter</label>
+      </section>
+
+      <section class="step" data-step="7">
+        <h2><span class="step-no">07</span> Make it yours</h2>
+
+        <label>License
+          <select id="f-license">
+            <option value="">None</option>
+            <option value="MIT">MIT</option>
+            <option value="Apache-2.0">Apache 2.0</option>
+            <option value="GPL-3.0">GPL 3.0</option>
+            <option value="BSD-3-Clause">BSD 3-Clause</option>
+          </select>
+        </label>
+
+        <label>Resume link (PDF)
+          <input type="text" id="f-resume" placeholder="https://aditi.dev/resume.pdf" />
+        </label>
+
+        <div class="feature-block">
+          <label class="checkbox"><input type="checkbox" id="f-typing" /> Animated typing header</label>
+          <label class="sub-field">Phrases (comma separated)
+            <input type="text" id="f-typing-lines" placeholder="Backend Engineer, Open Source Contributor, Coffee → Code" />
+          </label>
+        </div>
+
+        <div class="feature-block">
+          <label class="checkbox"><input type="checkbox" id="f-snake" /> Contribution snake animation</label>
+          <p class="hint">Needs a one-time GitHub Action — I'll generate that workflow file for you to download separately.</p>
+        </div>
+
+        <label>Buy Me a Coffee username
+          <input type="text" id="f-coffee" placeholder="aditisharma" />
+        </label>
+        <label>Ko-fi username
+          <input type="text" id="f-kofi" placeholder="aditisharma" />
+        </label>
+      </section>
+
+    </form>
+  </aside>
+
+  <!-- RIGHT: PREVIEW -->
+  <section class="preview-panel">
+    <div class="file-window">
+      <div class="file-chrome">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <span class="file-tab">README.md</span>
+        <span class="commit-meta" id="commit-meta">generated live • 0s ago</span>
+      </div>
+      <div class="file-tabs">
+        <button class="tab active" data-view="preview">Preview</button>
+        <button class="tab" data-view="raw">Raw markdown</button>
+        <div class="spacer"></div>
+        <button class="tab-action" id="copy-btn">Copy</button>
+        <button class="tab-action" id="download-workflow-btn" hidden>snake.yml</button>
+        <button class="tab-action tab-action-primary" id="download-btn">Download</button>
+      </div>
+      <div class="file-body">
+        <div id="preview-render" class="markdown-body"></div>
+        <textarea id="raw-render" class="raw-view" readonly spellcheck="false"></textarea>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  Built for your GitHub profile repo (<code>username/username</code>) — drop the downloaded file in as <code>README.md</code>.
+  If you picked a license, add its text as a <code>LICENSE</code> file too. If you enabled the snake animation, drop the
+  <code>snake.yml</code> download into <code>.github/workflows/</code>.
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
