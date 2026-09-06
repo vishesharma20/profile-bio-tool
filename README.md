@@ -13,7 +13,7 @@ then copy or download the result.
 
 ![Live preview](screenshots/preview.png)
 
-> Built my own GitHub profile README using this tool —
+> Built my own GitHub profile README using this tool: 
 > [check it out](https://github.com/visheshsharma20/visheshsharma20) as a
 > live example of what this generates.
 
@@ -31,11 +31,11 @@ then copy or download the result.
 - Contribution snake animation downloads the companion GitHub Actions
   workflow (`snake.yml`) too, since that's the part people usually get stuck on
 - Buy Me a Coffee / Ko-fi support badges
-- Pure HTML/CSS/JS — no build step, no dependencies to install
+- Pure HTML/CSS/JS, no build step, no dependencies to install
 
 ## How to use it
 
-1. **Open the generator** — either run it locally (see below) or visit the
+1. **Open the generator** either run it locally (see below) or visit the
    live GitHub Pages link if one is set up for this repo.
 2. **Fill in the form**, step by step:
    - Your name, role, location, and a short bio
